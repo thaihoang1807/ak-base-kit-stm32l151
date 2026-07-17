@@ -50,6 +50,11 @@ void btn_up_callback(void* b) {
 	}
 		break;
 
+	case BUTTON_SW_STATE_RELEASED: {
+		task_post_pure_msg(AC_TASK_HELLO_ID, AC_TASK_HELLO_PRINT);
+	}
+		break;
+
 	default:
 		break;
 	}

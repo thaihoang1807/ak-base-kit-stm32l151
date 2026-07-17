@@ -20,6 +20,11 @@ const task_t app_task_table[] = {
 	{AC_TASK_DBG_ID				,	TASK_PRI_LEVEL_4	,	task_dbg			},
 	{AC_TASK_DISPLAY_ID			,	TASK_PRI_LEVEL_4	,	task_display		},
 
+	/*************************************************************************/
+	/* TASK HELLO */
+	/*************************************************************************/
+	{AC_TASK_HELLO_ID			,	TASK_PRI_LEVEL_4	,	task_hello			},
+
 	#if defined(TASK_ZIGBEE_EN)
 	{AC_TASK_ZIGBEE_ID			,	TASK_PRI_LEVEL_4	,	task_zigbee			},
 	#endif
@@ -43,7 +48,7 @@ const task_t app_task_table[] = {
 	#endif
 
 	/*************************************************************************/
-	/* END OF TABLE */
+	/* END OF TABLE (Chốt chặn bắt buộc phải có để không bị treo chip) */
 	/*************************************************************************/
 	{AK_TASK_EOT_ID				,	TASK_PRI_LEVEL_0	,	(pf_task)0			}
 };
