@@ -1,12 +1,9 @@
 #include "button.h"
-
 #include "sys_dbg.h"
-
 #include "app.h"
 #include "app_bsp.h"
 #include "app_dbg.h"
 #include "app_if.h"
-
 #include "task_list.h"
 #include "task_list_if.h"
 #include "timer.h"
@@ -22,6 +19,9 @@ void btn_mode_callback(void* b) {
 		APP_DBG("[btn_mode_callback] BUTTON_SW_STATE_PRESSED\n");
 		task_post_pure_msg(AC_TASK_DISPLAY_ID, AC_DISPLAY_BUTON_MODE_PRESSED);
 		timer_set(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_IDLE, AC_DISPLAY_IDLE_INTERVAL, TIMER_ONE_SHOT);
+
+		// Gửi tín hiệu dịch PHẢI sang game
+		task_post_pure_msg(AC_TASK_HELLO_ID, AC_TASK_HELLO_RIGHT);
 	}
 		break;
 
@@ -42,16 +42,14 @@ void btn_up_callback(void* b) {
 		APP_DBG("[btn_up_callback] BUTTON_SW_STATE_PRESSED\n");
 		task_post_pure_msg(AC_TASK_DISPLAY_ID, AC_DISPLAY_BUTON_UP_PRESSED);
 		timer_set(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_IDLE, AC_DISPLAY_IDLE_INTERVAL, TIMER_ONE_SHOT);
+
+		// Gửi tín hiệu nhảy TIẾN sang game
+		task_post_pure_msg(AC_TASK_HELLO_ID, AC_TASK_HELLO_PRINT);
 	}
 		break;
 
 	case BUTTON_SW_STATE_LONG_PRESSED: {
 		APP_DBG("[btn_up_callback] BUTTON_SW_STATE_LONG_PRESSED\n");
-	}
-		break;
-
-	case BUTTON_SW_STATE_RELEASED: {
-		task_post_pure_msg(AC_TASK_HELLO_ID, AC_TASK_HELLO_PRINT);
 	}
 		break;
 
@@ -67,6 +65,9 @@ void btn_down_callback(void* b) {
 		APP_DBG("[btn_down_callback] BUTTON_SW_STATE_PRESSED\n");
 		task_post_pure_msg(AC_TASK_DISPLAY_ID, AC_DISPLAY_BUTON_DOWN_PRESSED);
 		timer_set(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_IDLE, AC_DISPLAY_IDLE_INTERVAL, TIMER_ONE_SHOT);
+
+		// Gửi tín hiệu dịch TRÁI sang game
+		task_post_pure_msg(AC_TASK_HELLO_ID, AC_TASK_HELLO_LEFT);
 	}
 		break;
 

@@ -191,10 +191,14 @@ enum {
  */
 /*****************************************************************************/
 /* define timer */
+#define GAME_TICK_INTERVAL_MS           (50) // Nhịp đập game: 50ms (20 FPS)
 
 /* define signal */
 enum {
-	AC_TASK_HELLO_PRINT = AK_USER_DEFINE_SIG,
+	AC_TASK_HELLO_PRINT = AK_USER_DEFINE_SIG, // Nút UP (Tiến/Chọn)
+	AC_TASK_HELLO_LEFT,                       // Nút DOWN (Trái/Giảm độ khó)
+	AC_TASK_HELLO_RIGHT,                      // Nút MODE (Phải/Tăng độ khó)
+	AC_TASK_HELLO_TICK                        // Nhịp đập game tự động
 };
 
 /*****************************************************************************/
