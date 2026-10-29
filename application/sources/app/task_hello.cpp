@@ -1,3 +1,4 @@
+#include "arcade.h"
 #include "task_hello.h"
 #include "app.h"
 #include "task_list.h"
@@ -341,6 +342,9 @@ static void tick() {
 }
 
 void task_hello(ak_msg_t* msg) {
+    if (arcade_handle(msg)) {
+        return;
+    }
     switch (msg->sig) {
     case AC_TASK_HELLO_PRINT:
         if (g_state == GAME_STATE_MENU) {

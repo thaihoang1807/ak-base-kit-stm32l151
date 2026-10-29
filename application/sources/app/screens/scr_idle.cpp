@@ -1,3 +1,4 @@
+#include "arcade.h"
 #include "scr_idle.h"
 #include "view_render.h"
 #include "app_dbg.h"
@@ -224,6 +225,9 @@ static void draw_items() {
 }
 
 static void render_game() {
+    if (arcade_render()) {
+        return;
+    }
     view_render.clear();
     view_render.setTextSize(1);
     view_render.setTextColor(WHITE);

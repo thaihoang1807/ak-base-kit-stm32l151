@@ -32,3 +32,5 @@ SOURCES_CPP += sources/app/task_dbg.cpp
 # Hello task
 SOURCES_CPP += sources/app/task_hello.cpp
 #SOURCES_CPP += sources/app/task_hello_x.cpp
+
+SOURCES_CPP += sources/app/arcade.cpp
